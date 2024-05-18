@@ -339,7 +339,7 @@
     <input type="text" placeholder="Город" id="city_field">
     <input type="text" placeholder="Описание" id="description_field">
     <button id="main_btn" onclick="DemoApp.sendMessage(&#39;&#39;);">Сохранить</button>
-    <button id="with_webview_btn" onclick="DemoApp.sendMessage(&#39;&#39;, true);" style="display:none">Send «Hello, World!» with inline webview button</button>
+    <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage(&#39;&#39;, true);" style="display:none">Send «Hello, World!» with inline webview button</button> -->
     
     
     
@@ -454,6 +454,10 @@
 
         // actions
         sendMessage(msg_id, with_webview) {
+            var newDiv = document.createElement("div");
+            newDiv.textContent = "Привет";
+            var parent = document.getElementById("top_sect");
+            parent.appendChild(newDiv);
             //if (!DemoApp.initDataUnsafe.query_id) {
             //    alert('WebViewQueryId not defined');
             //    return;
