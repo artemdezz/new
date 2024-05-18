@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)https://shabalinms.github.io/TelegramBotWeb/trip.html -->
-<html lang="en" class="light" style="--tg-viewport-height: 100vh; --tg-viewport-stable-height: 100vh;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="MobileOptimized" content="176">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="robots" content="noindex,nofollow">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="MobileOptimized" content="176"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="robots" content="noindex,nofollow"/>
     <title></title>
-    <script src="./trip_files/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
         function setThemeClass() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
@@ -332,21 +333,27 @@
     </style>
 </head>
 
-<body class="" style="">
+<body class="" style="visibility: hidden;">
 
 <section id="top_sect" class="second">
     <h1>Командировка</h1>
-    <input type="text" placeholder="Город" id="city_field">
-    <input type="text" placeholder="Описание" id="description_field">
-    <button id="main_btn" onclick="DemoApp.sendMessage(&#39;&#39;);">Сохранить</button>
-    <!-- <button id="with_webview_btn" onclick="DemoApp.sendMessage(&#39;&#39;, true);" style="display:none">Send «Hello, World!» with inline webview button</button> -->
+    <input type="text" placeholder="Город" id="city_field"/>
+    <input type="text" placeholder="Описание" id="description_field"/>
+    <button id="main_btn" onclick="DemoApp.sendMessage('');">Сохранить</button>
+    <button id="with_webview_btn" onclick="DemoApp.sendMessage('', true);" style="display:none">Send «Hello, World!» with inline webview button</button>
     
     
     
-    <input style="display:none" type="text" placeholder="Input text in regular input..." id="regular_field">
-    <div style="display:none" class="input" contenteditable="true" data-placeholder="Input text in contenteditable field..." id="text_field"></div>
+    <input style="display:none" type="text" placeholder="Input text in regular input..." id="regular_field"/>
+    <div
+        style="display:none"
+        class="input"
+        contenteditable="true"
+        data-placeholder="Input text in contenteditable field..."
+        id="text_field"
+    ></div>
     <div id="peer_wrap" style="display:none">
-        <img id="peer_photo" class="chat_img" src="https://shabalinms.github.io/TelegramBotWeb/trip.html">
+        <img id="peer_photo" class="chat_img" src="">
         <span id="peer_name"></span>
     </div>
     
@@ -357,14 +364,14 @@
     </div>
     <p>Test links:</p>
     <ul>
-        <li><a id="regular_link" href="https://shabalinms.github.io/TelegramBotWeb/trip.html">Regular link #2</a> (opens inside webview)</li>
+        <li><a id="regular_link" href="">Regular link #2</a> (opens inside webview)</li>
         <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>
-        <li><a href="javascript:window.open(&#39;https://telegram.org/&#39;);">window.open() link</a> (opens outside webview)</li>
+        <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside webview)</li>
         <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>
-        <li><a href="javascript:Telegram.WebApp.openTelegramLink(&#39;https://t.me/vote&#39;);">web_app_open_tg_link()</a> (opens inside Telegram app)</li>
-        <li><a href="javascript:Telegram.WebApp.openLink(&#39;https://google.com/&#39;);">web_app_open_link()</a> (opens outside webview)</li>
+        <li><a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/vote');">web_app_open_tg_link()</a> (opens inside Telegram app)</li>
+        <li><a href="javascript:Telegram.WebApp.openLink('https://google.com/');">web_app_open_link()</a> (opens outside webview)</li>
         <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
-        <li><a href="javascript:Telegram.WebApp.openLink(&#39;https://telegra.ph/api&#39;,{try_instant_view:true});">web_app_open_link({try_instant_view:true})</a> (opens IV inside Telegram app)</li>
+        <li><a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">web_app_open_link({try_instant_view:true})</a> (opens IV inside Telegram app)</li>
     </ul>
     <p>Test permissions:</p>
     <ul>
@@ -377,13 +384,13 @@
     <p>Test alerts:</p>
     <div class="columns">
         <ul>
-            <li><a href="javascript:;" onclick="alert(&#39;Hello!&#39;);">alert</a></li>
-            <li><a href="javascript:;" onclick="confirm(&#39;Are you sure?&#39;);">confirm</a></li>
-            <li><a href="javascript:;" onclick="prompt(&#39;How old are you?&#39;);">prompt</a></li>
+            <li><a href="javascript:;" onclick="alert('Hello!');">alert</a></li>
+            <li><a href="javascript:;" onclick="confirm('Are you sure?');">confirm</a></li>
+            <li><a href="javascript:;" onclick="prompt('How old are you?');">prompt</a></li>
         </ul>
         <ul>
-            <li><a href="javascript:;" onclick="DemoApp.showAlert(&#39;Hello!&#39;);">showAlert</a></li>
-            <li><a href="javascript:;" onclick="DemoApp.showConfirm(&#39;Are you sure?&#39;);">showConfirm</a></li>
+            <li><a href="javascript:;" onclick="DemoApp.showAlert('Hello!');">showAlert</a></li>
+            <li><a href="javascript:;" onclick="DemoApp.showConfirm('Are you sure?');">showConfirm</a></li>
             <li><a href="javascript:;" onclick="DemoApp.requestWriteAccess();">requestWriteAccess</a></li>
             <li><a href="javascript:;" onclick="DemoApp.requestContact();">requestContact</a></li>
             <li><a href="javascript:;" onclick="DemoApp.showPopup();">showPopup</a></li>
@@ -393,26 +400,26 @@
     </div>
     <p>Haptics:</p>
     <ul>
-        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred(&#39;heavy&#39;);">heavy</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred(&#39;light&#39;);">light</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred(&#39;medium&#39;);">medium</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred(&#39;rigid&#39;);">rigid</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred(&#39;soft&#39;);">soft</a><br><br></li>
-        <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred(&#39;error&#39;);">error</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred(&#39;success&#39;);">success</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred(&#39;warning&#39;);">warning</a><br><br></li>
+        <li>Impact: <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('heavy');">heavy</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');">light</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');">medium</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');">rigid</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br></li>
+        <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>, &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br></li>
         <li>Selection: <a href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();">changed</a><br><br></li>
     </ul>
-    <pre><code id="webview_data">{}</code></pre>
+    <pre><code id="webview_data"></code></pre>
     <div class="hint">
         Data passed to webview.
         <span id="webview_data_status" class="status_need">Checking hash...</span>
     </div>
-    <pre><code id="theme_data">{}</code></pre>
+    <pre><code id="theme_data"></code></pre>
     <div class="hint">
         Theme params
     </div>
     <div class="hint">
-        Version: <span id="ver">6.0</span>,
-        platform: <span id="platform">unknown</span>
+        Version: <span id="ver"></span>,
+        platform: <span id="platform"></span>
     </div>
 </section>
-<div class="viewport-border" text="1488 x 748"></div>
-<div class="viewport-stable_border" text="1488 x 748 | is_expanded: true"></div>
+<div class="viewport-border"></div>
+<div class="viewport-stable_border"></div>
 
 <script type="application/javascript">
 
@@ -454,10 +461,14 @@
 
         // actions
         sendMessage(msg_id, with_webview) {
+
             var newDiv = document.createElement("div");
             newDiv.textContent = "Привет";
             var parent = document.getElementById("top_sect");
             parent.appendChild(newDiv);
+
+            var newDiv1 = document.createElement("div");
+            document.body.appendChild(newDiv1);
             //if (!DemoApp.initDataUnsafe.query_id) {
             //    alert('WebViewQueryId not defined');
             //    return;
@@ -921,5 +932,5 @@
     DemoApp.testClipboard(document.getElementById('clipboard_test'));
 </script>
 
-
-</body></html>
+</body>
+</html>
