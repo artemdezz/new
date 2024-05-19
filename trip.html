@@ -42,8 +42,23 @@
             var description = document.getElementById('description').value;
             var data = { city: city, description: description };
 
-            // Отправка данных обратно в Telegram бот
-            Telegram.WebApp.sendData(JSON.stringify(data));
+            console.log("Preparing to send data:", JSON.stringify(data)); // Вывод данных перед отправкой
+
+            var newDiv = document.createElement("div");
+
+
+            try {
+                Telegram.WebApp.sendData(JSON.stringify(data));
+                console.log("Data sent successfully"); // Успешная отправка данных
+
+                newDiv.textContent = "Сработало" + data.city + " " + data.description;
+                document.body.appendChild(newDiv);
+            } catch (error) {
+                console.error("Error sending data:", error); // Логирование ошибки при отправке данных
+                
+                newDiv.textContent = "Не сработало" + data.city + " " + data.description + error;
+                document.body.appendChild(newDiv);
+            }
         }
     </script>
 </body>
