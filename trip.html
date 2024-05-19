@@ -462,13 +462,7 @@
         // actions
         sendMessage(msg_id, with_webview) {
 
-            var newDiv = document.createElement("div");
-            newDiv.textContent = "Привет";
-            var parent = document.getElementById("top_sect");
-            parent.appendChild(newDiv);
-
-            var newDiv1 = document.createElement("div");
-            document.body.appendChild(newDiv1);
+            
             //if (!DemoApp.initDataUnsafe.query_id) {
             //    alert('WebViewQueryId not defined');
             //    return;
@@ -512,7 +506,16 @@
                 city: document.getElementById('city_field').value,
                 description: document.getElementById('description_field').value
             }
+
+
             var result = JSON.stringify(obj);
+
+            var newDiv = document.createElement("div");
+            newDiv.textContent = "Привет "+ document.getElementById('city_field').value + " " + document.getElementById('description_field').value + " ||  " +
+            result;
+            var parent = document.getElementById("top_sect");
+            parent.appendChild(newDiv);
+
             Telegram.WebApp.sendData(result);
         },
         changeMenuButton(close) {
