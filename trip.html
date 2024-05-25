@@ -55,21 +55,21 @@
 </head>
 <body>
     <h2>Введите информацию о командировке</h2>
-    <input type="text" id="FirstName" placeholder="Имя">
-    <input type="text" id="LastName" placeholder="Фамилия">
-    <input type="text" id="MiddleName" placeholder="Отчество">
-    <input type="text" id="Passport" placeholder="№ и серия паспорта">
-    <input type="tel" maxlength="12" id="ContactPhone" placeholder="Телефон для связи">
-    <input type="email" id="PhoneAndEmail" placeholder="Email">
-    <input type="text" id="DepartureDateTime" placeholder="Дата отправления" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
+    <input type="text" id="FirstName" placeholder="Имя" value="Тест">
+    <input type="text" id="LastName" placeholder="Фамилия" value="Тестович">
+    <input type="text" id="MiddleName" placeholder="Отчество" value="Тестик">
+    <input type="text" id="Passport" placeholder="№ и серия паспорта" value="3612373721">
+    <input type="tel" maxlength="12" id="ContactPhone" placeholder="Телефон для связи" value="+79966244240">
+    <input type="email" id="PhoneAndEmail" placeholder="Email" value="artem@mail.ru">
+    <input type="text" id="DepartureDateTime" placeholder="Дата отправления" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}" >
     <input type="text" id="ArrivalDateTime" placeholder="Дата прибытия" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
-    <input type="text" id="CarDeliveryAddress" placeholder="Адрес подачи авто">
+    <input type="text" id="CarDeliveryAddress" placeholder="Адрес подачи авто" value="Улица Пушкина">
     <input type="text" id="CarDeliveryTime" placeholder="Время подачи авто" onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}">
-    <input type="text" id="Accommodation" placeholder="Место проживания">
-    <input type="text" id="Comment" placeholder="Комментарии">
-    <input type="text" id="ProjectDescription" placeholder="Описание проекта">
-    <input type="text" id="Route" placeholder="Маршрут">
-    <input type="text" id="TransportKind" placeholder="Тип транспорта">
+    <input type="text" id="Accommodation" placeholder="Место проживания" value="Лос-Анджелес">
+    <input type="text" id="Comment" placeholder="Комментарии" value="Коментик">
+    <input type="text" id="ProjectDescription" placeholder="Описание проекта" value="Отличный проект">
+    <input type="text" id="Route" placeholder="Маршрут" value="Маршрутик">
+    <input type="text" id="TransportKind" placeholder="Тип транспорта" value="Копейка" >
     <div class="checkbox-container">
         <label for="HasBaggage">Берете багаж с собой? </label>
         <input type="checkbox" id="HasBaggage" name="HasBaggage">
