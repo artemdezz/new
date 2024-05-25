@@ -1,3 +1,4 @@
+Илья Новоженин, [25.05.2024 14:09]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +7,6 @@
     <title>Форма командировки</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -26,7 +26,7 @@
         body.gray {
             background-color: var(--tg-theme-secondary-bg-color, #efefef);
         }
-       input, button, select {
+        input, button, select {
             margin: 10px 0;
             padding: 10px;
             width: 80%;
@@ -56,89 +56,62 @@
 </head>
 <body>
     <h2>Введите информацию о командировке</h2>
-    <input type="text" id="surname" placeholder="Фамилия (Латиницей)">
-    <input type="text" id="name" placeholder="Имя (Латиницей)">
-    <input type="text" id="lastname" placeholder="Отчество (Латиницей)">
-    <input type="text" id="citizenship" placeholder="Гражданство (заполняется при подаче первой заявки и при изменении данных)">
-    <input type="text" id="dateOfBirth" placeholder="Дата рождения" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}">
-    <input type="text" id="numberAndSeries" placeholder="№ и серия паспорта (заполняется при подаче первой заявки и при изменении данных)">
-    <input type="tel" id="contactPhoneNumber" placeholder="Телефон для связи (заполняется при подаче первой заявки и при изменении данных)">
-    <input type="email" id="contactEmail" placeholder="Email (заполняется при подаче первой заявки и при изменении данных)">
-    <input type="text" id="fio" placeholder="ФИО (по русски)">
-    <input type="tel" id="telephoneUseInBusinessTrip" placeholder="Телефон для связи, действующий на момент отъезда/прилета (чтобы водитель такси мог с вами связаться)">
-    <input type="text" id="departureDate" placeholder="Дата отъезда (если есть ограничения)" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}">
-    <input type="text" id="desiredDepartureTime" placeholder="Желаемое время отъезда (если есть ограничения)" onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}" >
-    <input type="text" id="carDeliveryAddress" placeholder="Адрес подачи авто при отлете/пункт назначения при прилете">
-    <input type="text" id="carDeliveryTime" placeholder="Время подачи авто при отлете/время прибытия рейса по расписанию при прилете"  onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}">
-    <input type="text" id="baggage" placeholder="Багаж">
-    <input type="text" id="commentsOnTravel" placeholder="Комментарии по проезду">
-   
-    
+    <input type="text" id="FirstName" placeholder="Имя">
+    <input type="text" id="LastName" placeholder="Фамилия">
+    <input type="text" id="MiddleName" placeholder="Отчество">
+    <input type="text" id="Passport" placeholder="№ и серия паспорта">
+    <input type="tel" maxlength="12" id="ContactPhone" placeholder="Телефон для связи">
+    <input type="email" id="PhoneAndEmail" placeholder="Email">
+    <input type="text" id="DepartureDateTime" placeholder="Дата отправления" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
+    <input type="text" id="ArrivalDateTime" placeholder="Дата прибытия" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
+    <input type="text" id="CarDeliveryAddress" placeholder="Адрес подачи авто">
+    <input type="text" id="CarDeliveryTime" placeholder="Время подачи авто" onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}">
+    <input type="text" id="Comment" placeholder="Комментарии">
+    <input type="text" id="ProjectDescription" placeholder="Описание проекта">
+    <input type="text" id="Route" placeholder="Маршрут">
+    <input type="text" id="TransportKind" placeholder="Тип транспорта">
     <div class="checkbox-container">
-        <label for="transfer">Нужен трансфер в/из аэропорта, ж/д вокзала в Самаре? </label>
-        <input type="checkbox" id="transfer" name="transfer">
+        <label for="HasBaggage">Берете багаж с собой? </label>
+        <input type="checkbox" id="HasBaggage" name="HasBaggage">
+    </div>
+    <div class="checkbox-container">
+        <label for="HasTransfer">Нужен трансфер? </label>
+        <input type="checkbox" id="HasTransfer" name="HasTransfer">
     </div>
     
     <button onclick="sendData()">Сохранить</button>
 
     <script>
-        
         Telegram.WebApp.ready();
 
-        function sendData() {
-            var surname =  document.getElementById('surname').value;
-            var name =  document.getElementById('name').value;
-            var lastname = document.getElementById('lastname').value;
-            var citizenship =  document.getElementById('citizenship').value;
-            var dateOfBirth = document.getElementById('dateOfBirth').value;
-            var numberAndSeries = document.getElementById('numberAndSeries').value;
-            var contactPhoneNumber = document.getElementById('contactPhoneNumber').value;
-            var contactEmail= document.getElementById('contactEmail').value;
-            var fio = document.getElementById('fio').value;
-            var telephoneUseInBusinessTrip = document.getElementById('telephoneUseInBusinessTrip').value;
-            var departureDate = document.getElementById('departureDate').value;
-            var desiredDepartureTime = document.getElementById('desiredDepartureTime').value;
-            var carDeliveryAddress = document.getElementById('carDeliveryAddress').value;
-            var carDeliveryTime = document.getElementById('carDeliveryTime').value;
-            var baggage = document.getElementById('baggage').value;
-            var commentsOnTravel = document.getElementById('commentsOnTravel').value;
-            var transfer = document.getElementById('transfer').value;
+Илья Новоженин, [25.05.2024 14:09]
+function sendData() {
             var data = {
-                surname: surname,
-                name: name,
-                lastname: lastname,
-                citizenship: citizenship,
-                dateOfBirth: dateOfBirth,
-                numberAndSeries: numberAndSeries,
-                contactPhoneNumber: contactPhoneNumber,
-                contactEmail: contactEmail,
-                fio: fio,
-                telephoneUseInBusinessTrip: telephoneUseInBusinessTrip,
-                departureDate: departureDate,
-                desiredDepartureTime: desiredDepartureTime,
-                carDeliveryAddress: carDeliveryAddress,
-                carDeliveryTime: carDeliveryTime,
-                baggage: baggage,
-                commentsOnTravel: commentsOnTravel,
-                transfer: transfer
+                FirstName: document.getElementById('FirstName').value,
+                LastName: document.getElementById('LastName').value,
+                MiddleName: document.getElementById('MiddleName').value,
+                Passport: document.getElementById('Passport').value,
+                ContactPhone: document.getElementById('ContactPhone').value,
+                PhoneAndEmail: document.getElementById('PhoneAndEmail').value,
+                DepartureDateTime: document.getElementById('DepartureDateTime').value,
+                ArrivalDateTime: document.getElementById('ArrivalDateTime').value,
+                CarDeliveryAddress: document.getElementById('CarDeliveryAddress').value,
+                CarDeliveryTime: document.getElementById('CarDeliveryTime').value,
+                Comment: document.getElementById('Comment').value,
+                ProjectDescription: document.getElementById('ProjectDescription').value,
+                Route: document.getElementById('Route').value,
+                TransportKind: document.getElementById('TransportKind').value,
+                HasBaggage: document.getElementById('HasBaggage').checked,
+                HasTransfer: document.getElementById('HasTransfer').checked
             };
 
-            console.log("Preparing to send data:", JSON.stringify(data)); // Вывод данных перед отправкой
-
-            var newDiv = document.createElement("div");
-
+            console.log("Preparing to send data:", JSON.stringify(data));
 
             try {
                 Telegram.WebApp.sendData(JSON.stringify(data));
-                console.log("Data sent successfully"); // Успешная отправка данных
-
-                newDiv.textContent = "Сработало" + data.city + " " + data.description;
-                document.body.appendChild(newDiv);
+                console.log("Data sent successfully");
             } catch (error) {
-                console.error("Error sending data:", error); // Логирование ошибки при отправке данных
-                
-                newDiv.textContent = "Не сработало" + data.city + " " + data.description + error;
-                document.body.appendChild(newDiv);
+                console.error("Error sending data:", error);
             }
         }
     </script>
