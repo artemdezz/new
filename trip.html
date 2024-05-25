@@ -1,4 +1,4 @@
-Илья Новоженин, [25.05.2024 14:09]
+Илья Новоженин, [25.05.2024 14:20]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -66,6 +66,7 @@
     <input type="text" id="ArrivalDateTime" placeholder="Дата прибытия" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
     <input type="text" id="CarDeliveryAddress" placeholder="Адрес подачи авто">
     <input type="text" id="CarDeliveryTime" placeholder="Время подачи авто" onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}">
+    <input type="text" id="Accommodation" placeholder="Место проживания">
     <input type="text" id="Comment" placeholder="Комментарии">
     <input type="text" id="ProjectDescription" placeholder="Описание проекта">
     <input type="text" id="Route" placeholder="Маршрут">
@@ -84,7 +85,7 @@
     <script>
         Telegram.WebApp.ready();
 
-Илья Новоженин, [25.05.2024 14:09]
+Илья Новоженин, [25.05.2024 14:20]
 function sendData() {
             var data = {
                 FirstName: document.getElementById('FirstName').value,
@@ -97,6 +98,7 @@ function sendData() {
                 ArrivalDateTime: document.getElementById('ArrivalDateTime').value,
                 CarDeliveryAddress: document.getElementById('CarDeliveryAddress').value,
                 CarDeliveryTime: document.getElementById('CarDeliveryTime').value,
+                Accommodation: document.getElementById('Accommodation').value,
                 Comment: document.getElementById('Comment').value,
                 ProjectDescription: document.getElementById('ProjectDescription').value,
                 Route: document.getElementById('Route').value,
