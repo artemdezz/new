@@ -69,7 +69,7 @@
     <input type="text" id="Comment" placeholder="Комментарии" value="Коментик">
     <input type="text" id="ProjectDescription" placeholder="Описание проекта" value="Отличный проект">
     <input type="text" id="Route" placeholder="Маршрут" value="Маршрутик">
-    <input type="text" id="TransportKind" placeholder="Тип транспорта" value="Копейка" >
+    <input type="text" id="TransportKind" placeholder="Тип транспорта" value="Копейка">
     <div class="checkbox-container">
         <label for="HasBaggage">Берете багаж с собой? </label>
         <input type="checkbox" id="HasBaggage" name="HasBaggage">
@@ -84,7 +84,7 @@
     <script>
         Telegram.WebApp.ready();
 
-function sendData() {
+        function sendData() {
             var data = {
                 FirstName: document.getElementById('FirstName').value,
                 LastName: document.getElementById('LastName').value,
@@ -92,10 +92,10 @@ function sendData() {
                 Passport: document.getElementById('Passport').value,
                 ContactPhone: document.getElementById('ContactPhone').value,
                 PhoneAndEmail: document.getElementById('PhoneAndEmail').value,
-                DepartureDateTime: document.getElementById('DepartureDateTime').value,
-                ArrivalDateTime: document.getElementById('ArrivalDateTime').value,
+                DepartureDateTime: formatDateTime(document.getElementById('DepartureDateTime').value),
+                ArrivalDateTime: formatDateTime(document.getElementById('ArrivalDateTime').value),
                 CarDeliveryAddress: document.getElementById('CarDeliveryAddress').value,
-                CarDeliveryTime: document.getElementById('CarDeliveryTime').value,
+                CarDeliveryTime: formatTime(document.getElementById('CarDeliveryTime').value),
                 Accommodation: document.getElementById('Accommodation').value,
                 Comment: document.getElementById('Comment').value,
                 ProjectDescription: document.getElementById('ProjectDescription').value,
@@ -115,17 +115,26 @@ function sendData() {
             }
         }
 
-function formatDateTime(dateTime) {
+        function formatDateTime(dateTime) {
             if (dateTime && dateTime.length > 0) {
                 const date = new Date(dateTime);
-                return date.toISOString(); // Форматирует в ISO 8601, подходящий для большинства API
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                const seconds = String(date.getSeconds()).padStart(2, '0');
+                return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
             }
             return null;
         }
 
         function formatTime(time) {
             if (time && time.length > 0) {
-                return time + ":00"; // Добавляет секунды, если их нет
+                if (time.length == 5) {
+                    time += ":00";
+                }
+                return time;
             }
             return null;
         }
