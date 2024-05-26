@@ -61,7 +61,7 @@
     <input type="text" id="Passport" placeholder="№ и серия паспорта" value="3612373721">
     <input type="tel" maxlength="12" id="ContactPhone" placeholder="Телефон для связи" value="+79966244240">
     <input type="email" id="PhoneAndEmail" placeholder="Email" value="artem@mail.ru">
-    <input type="text" id="DepartureDateTime" placeholder="Дата отправления" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}" >
+    <input type="text" id="DepartureDateTime" placeholder="Дата отправления" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
     <input type="text" id="ArrivalDateTime" placeholder="Дата прибытия" onfocus="(this.type='datetime-local')" onblur="if(this.value===''){this.type='text'}">
     <input type="text" id="CarDeliveryAddress" placeholder="Адрес подачи авто" value="Улица Пушкина">
     <input type="text" id="CarDeliveryTime" placeholder="Время подачи авто" onfocus="(this.type='time')" onblur="if(this.value===''){this.type='text'}">
@@ -113,6 +113,21 @@ function sendData() {
             } catch (error) {
                 console.error("Error sending data:", error);
             }
+        }
+
+function formatDateTime(dateTime) {
+            if (dateTime && dateTime.length > 0) {
+                const date = new Date(dateTime);
+                return date.toISOString(); // Форматирует в ISO 8601, подходящий для большинства API
+            }
+            return null;
+        }
+
+        function formatTime(time) {
+            if (time && time.length > 0) {
+                return time + ":00"; // Добавляет секунды, если их нет
+            }
+            return null;
         }
     </script>
 </body>
